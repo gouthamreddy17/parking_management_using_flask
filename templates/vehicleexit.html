@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+Parking Slots
+{% endblock %}
+{% block nav %}
+    <a href="{{url_for('dashboard')}}">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
+    <a href="">VEHICLE EXIT</a>
+    <a href="">HISTORY</a>
+{% endblock %}
+{% block content %}
+    <form action="/vehicle_exit" method="POST">
+        <label for="vehicle_number"></label>
+        <input type="text" id="name" name="vehicle_number" placeholder="ENter your vehicle number">
+        <button type="submit" >show</button>
+    </form>
+{% endblock %}

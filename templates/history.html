@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block nav %}
+    <a href="">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="">VEHICLE ENTRY</a>
+    <a href="{{url_for('vehicle_exit')}}">VEHICLE EXIT</a>
+    <a href="{{url_for('viewhistory')}}">HISTORY</a>
+{% endblock %}
+
+{% block content %}
+<div class="middle">
+    <p>Parking History</p>
+    <p>View and manage all vehicle parking records</p>
+</div>
+{{history}}
+<div class="his-main1">
+    {% for i in history %}
+    <div class="his-main">
+        {% if i.vehicle_type=="Bike" %}
+        <div class="his1"><img src="{{ url_for('static', filename='images/cars.png') }}"alt="Car" class="imm"><span>{{i.vehicle_type}}</span></div>
+         {% endif %}
+        {% if i.vehicle_type=="Car" %}
+        <div class="his1"><img src="{{ url_for('static', filename='images/cars.png') }}"alt="Car" class="imm"><span>{{i.vehicle_type}}</span></div>
+         {% endif %}
+        {% if i.vehicle_type=="Truck" %}
+        <div class="his1"><img src="{{ url_for('static', filename='images/cars.png') }}"alt="Car" class="imm"><span>{{i.vehicle_type}}</span></div>
+        
+        {% endif %}
+        <div><span>VEHICLE NUMBER</span> <b>{{i.vehicle_number}}</b></div>
+        <div><span>VEHICLE ID</span> <b>{{i.id}}</b></div>
+        <div><span>SLOT NUMBER</span> <b>{{i.slot_number}}</b></div>
+        <div><span>VEHICLE ENTRY TIME</span> <b>{{i.entry_time}}</b></div>
+        <div><span>VEHICLE EXIT TIME</span> <b>{{i.exit_time}}</b></div>
+        <div><span>VEHICLE STATUS</span> <b>{{i.status}}</b></div>
+        <div><span>FEE</span> <b>{{i.parking_fee}}</b></div>
+
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

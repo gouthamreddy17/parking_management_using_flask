@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}
+Parking Slots
+{% endblock %}
+{% block nav %}
+    <a href="{{url_for('dashboard')}}">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
+    <a href="">VEHICLE EXIT</a>
+    <a href="">HISTORY</a>
+{% endblock %}
+
+{% block content %}
+<div class="middle">
+    <p>Parking Slots</p>
+    <p>Manage and monitor all parking spaces</p>
+</div>
+<div class="container-total">
+    <div class="total">
+        <p>Total slotes are: <b>{{total_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Available Slots are: <b>{{available_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Occupied slotes are: <b>{{occupied_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Total slotes are: <b>{{total_slots}}</b></p>
+    </div>
+</div>
+<div class="btns">
+    <button class="btn-types">Cars</button>
+    <button class="btn-types">Bikes</button>
+    <a href="#truck"><button class="btn-types" >Trucks</button></a>
+</div>
+<center><h2 class="space">CARS</h2></center>
+<div class="parking">
+    {% for i in selectall %}
+    {% if i.vehicle_type=="Car" %}
+        <div class="parking-type">
+            <div class="parking-type2">
+                <img src="{{ url_for('static', filename='images/car.png') }}"alt="Car" class="imm">
+            <p class="slot">[{{i.slot_number}}]</p>
+            </div>
+             <div>
+                {% if i.status=="Available" %}
+            <button class="color-green">  {{i.status}}</button>
+            {%elif i.status=="Occupied"%}
+            <button class="color-red">  {{i.status}}</button>
+            {% endif %}
+        </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<center><h2 class="space">BIKES</h2></center>
+<div class="parking">
+    {% for i in selectall %}
+    {% if i.vehicle_type=="Bike" %}
+        <div class="parking-type">
+            <div class="parking-type2">
+                <img src="{{ url_for('static', filename='images/bike.png') }}"alt="Car" class="imm">
+            <p class="slot">[{{i.slot_number}}]</p>
+            </div>
+             <div>
+                {% if i.status=="Available" %}
+            <button class="color-green">  {{i.status}}</button>
+            {%elif i.status=="Occupied"%}
+            <button class="color-red">  {{i.status}}</button>
+            {% endif %}
+        </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+<center><h2 class="space">TRUCKS</h2></center>
+<div class="parking" id="truck">
+    {% for i in selectall %}
+    {% if i.vehicle_type=="Truck" %}
+        <div class="parking-type">
+            <div class="parking-type2">
+                <img src="{{ url_for('static', filename='images/truck.png') }}"alt="Car" class="imm">
+            <p class="slot">[{{i.slot_number}}]</p>
+            </div>
+             <div>
+                {% if i.status=="Available" %}
+            <button class="color-green">  {{i.status}}</button>
+            {%elif i.status=="Occupied"%}
+            <button class="color-red">  {{i.status}}</button>
+            {% endif %}
+        </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

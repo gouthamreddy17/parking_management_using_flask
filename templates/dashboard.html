@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block nav %}
+    <a href="">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="">VEHICLE ENTRY</a>
+    <a href="{{url_for('vehicle_exit')}}">VEHICLE EXIT</a>
+    <a href="{{url_for('viewhistory')}}">HISTORY</a>
+{% endblock %}
+
+{% block content %}
+<p class="pp" >Welcome To Parking Slot Manager</p>
+<div class="container-total">
+    <div class="total">
+        <p>Total slotes are: <b>{{total_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Available Slots are: <b>{{available_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Occupied slotes are: <b>{{occupied_slots}}</b></p>
+    </div>
+    <div class="total">
+        <p>Total slotes are: <b>{{total_slots}}</b></p>
+    </div>
+</div>
+<p class="pp">Vehicle Type Overview</p>
+<div class="container-total">
+{% for i in vehicle_type_overview %}
+    
+    <div class="total">
+        <b>{{i.vehicle_type}}</b>
+        <p>Total slotes are: <b>{{i.total_slots}}</b></p>
+        <p>Aailable slotes are: <b>{{i.available_slots}}</b></p>
+        <p>Occupied slotes are: <b>{{i.occupied_slots}}</b></p>
+    </div>
+
+{% endfor %}
+</div>
+<p class="pp">Recent Vehicle Entries</p>
+<div class="tab">
+    <table class="table">
+    <tr>
+        <th>Vehicle ID</th>
+        <th>Vehicle Type</th>
+        <th>Slot ID</th>
+        <th>Status</th>
+        <th>Vehicle NUmber</th>
+        <th>Entry Time</th>
+        <th>Exit Time</th>
+        <th>Parking Fee</th>
+    </tr>
+    {% for i in recent_records %}
+    <tr>
+        
+        <td>{{i.id}}</td>
+        <td>{{i.vehicle_type}}</td>
+        <td>{{i.slot_id}}</td>
+        <td>{{i.status}}</td>
+        <td>{{i.vehicle_number}}</td>
+        <td>{{i.entry_time}}</td>
+        <td>{{i.exit_time}}</td>
+        <td>{{i.parking_fee}}</td>
+        {% endfor %}
+    </tr>
+</table>
+</div>
+<center><a href=""><button class="btn-viewall">View all</button></a></center>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

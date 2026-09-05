@@ -1,0 +1,262 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    background-color: #F35503;
+    padding: 13px;
+    margin: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+h3{
+    color: white;
+    font-weight: 600;
+    
+}
+
+.footer{
+    margin: 10px;
+    background-color: #F35503;
+    padding: 10px;
+    color: white;
+}
+.footer-p{
+    text-align: center;
+}
+
+.lists{
+    display: flex;
+    gap: 20px;
+}
+
+.lists a{
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 5px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.content{
+    margin: 40px;
+}
+
+.pp{
+    font-size: 18px;
+    text-align: center;
+}
+
+.total {
+    width: 270px;
+    height: 100%;
+    padding: 29px;
+    flex-direction: column;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin: 20px;
+}
+.container-total{
+    display: flex;
+    padding: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(189, 225, 225);
+    margin-top: 20px;
+}
+
+.tab{
+    margin: 20px;
+}
+
+.table,tr{
+    width: 100%;
+    text-align: center;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th,td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.btn-viewall{
+    padding: 6px 15px;
+    background-color: #F35503;
+    color: white;
+    border-radius: 4px;
+    border: none;
+}
+.middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 19px;
+
+
+}
+
+.btns{
+    margin: 30px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn-types{
+    padding: 5px 30px;
+    background: none;
+    border: 2px solid #F35503;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.parking{
+    margin: 50px;
+}
+
+.parking-type{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #fadccc;
+    margin: 20px;
+    border-radius: 10px;
+    justify-content: space-between;
+    padding: 2px 40px;
+    
+}
+.parking-type2{
+    display: flex;
+    align-items: center;
+    gap:20px;
+}
+
+
+.imm{
+    width: 60px;
+}
+
+.slot{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.color-green{
+    background-color: rgb(3, 163, 3);
+    color: white;
+    padding: 9px 45px;
+    border-radius: 5px;
+    border: none;
+}
+.color-red{
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 9px 45px;
+    border-radius: 5px;
+    border: none;
+}
+
+.space{
+    line-height: 0px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 20px black;
+}
+form label{
+    font-size: 14px;
+}
+form select,input{
+    width: 100%;
+    height: 40px;
+    border: 2px solid #F35503;
+    border-radius: 5px;
+    background-color: #fadccc;
+    padding: 10px;
+}
+.form-con{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+}
+
+form button{
+    width: 300px;
+    height: 40px;
+    background-color: #F35503;
+    border: none;
+    margin: 20px;
+    border-radius: 7px;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    margin: 30px;
+
+}
+
+.data1{
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    gap:20px;
+    padding: 20px;
+    border-radius: 20px;
+    border-left: 5px solid #F35503;
+}
+.spp{
+    margin-right: 10px;
+}
+
+.his1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.his-main{
+    display: flex;
+    background-color: rgb(199, 198, 198);
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px black;
+    width: 380px;
+    margin: 20px;
+    padding: 10px;
+    flex-direction: column;
+    
+}
+
+.his-main1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}

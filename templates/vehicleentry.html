@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block nav %}
+    <a href="{{url_for('dashboard')}}">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
+    <a href="">VEHICLE EXIT</a>
+    <a href="">HISTORY</a>
+{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="middle">
+    <p>Vehicle Entry</p>
+    <p>Register a vehicle and assign a parking slot</p>
+
+</div>
+        <div class="form-con">
+            <form action="{{url_for('vehicle_entry')}}" method="POST">
+            <label for="vehicle_number">Vehicle Number</label>
+            <input type="text"
+                name="vehicle_number"
+                id="vehicle_number"
+                value="{{vehicle_number}}"
+                placeholder="Enter Your Vehicle_number"
+                required
+            >
+            <label for="vehicle_type">Vehicle Type</label>
+            <select name="vehicle_type" id="vehicle_type">
+                <option value="Bike">Bike</option>
+                <option value="Car">Car</option>
+                <option value="Truck">Truck</option>
+            </select>
+            <button type="submit" name="action"  value="show_slots">show slots</button>
+            <label for="slot">Select slot</label>
+            <select name="slot" id="slot">
+            {% for i in slots %}
+            <option value="{{i.id}}">{{i.slot_number}}</option>
+            {% endfor %}
+            </select>
+            <button type="submit" name="action"  value="park">Park vehicle</button>
+        </form>
+        </div>
+{% endblock %}
