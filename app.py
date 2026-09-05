@@ -1,23 +1,29 @@
 from flask import Flask,render_template,request,jsonify,redirect,url_for
 import mysql.connector
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 app=Flask(__name__)
 
 #get connection
+# 
 def getconnetionwithDB():
     try:
-        connection=mysql.connector.connect(
-        host='localhost',
-        user='root',
-        password='mysql',
-        database='parking_management'
+        connection = mysql.connector.connect(
+            host=os.environ.get("DB_HOST"),
+            user=os.environ.get("DB_USER"),
+            password=os.environ.get("DB_PASSWORD"),
+            database=os.environ.get("DB_NAME"),
+            port=int(os.environ.get("DB_PORT", 3306))
         )
-        return connection
-        
-    except:
-        
-        return "Connection Failed"
 
+        return connection
+
+    except Exception as e:
+        print("Database connection error:", e)
+        return "Connection Failed"
 
 
 
