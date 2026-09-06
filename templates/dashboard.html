@@ -2,89 +2,84 @@
 {% block title %}
 Dashboard
 {% endblock %}
-
-{% block nav %}
-    <a href="">HOME</a>
-    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
-    <a href="">VEHICLE ENTRY</a>
-    <a href="{{url_for('vehicle_exit')}}">VEHICLE EXIT</a>
-    <a href="{{url_for('viewhistory')}}">HISTORY</a>
-{% endblock %}
-
 {% block content %}
-<p class="pp" >Welcome To Parking Slot Manager</p>
-<div class="container-total">
-    <div class="total">
-        <p>Total slotes are: <b>{{total_slots}}</b></p>
+<div class="container">
+    <div class="row bg-col">
+        <div class="col-12 col-sm-6 col-md-6">
+            <div class="p-3">
+                <h4>Welcome to</h4>
+                <span class="blue-col">Parking </span><span class="fs-3">Slot Manager</span>
+                <p class="fs-5">Manage your parking space easily and efficiently.</p>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6">
+            <div class="d-flex flex-column  justify-content-center  align-items-center h-100">
+                <p class="lh-1">“A Better Space for a Smoother Tomorrow”</p>
+                <hr class="hrr">
+            </div>
+        </div>
     </div>
-    <div class="total">
-        <p>Available Slots are: <b>{{available_slots}}</b></p>
-    </div>
-    <div class="total">
-        <p>Occupied slotes are: <b>{{occupied_slots}}</b></p>
-    </div>
-    <div class="total">
-        <p>Total slotes are: <b>{{total_slots}}</b></p>
-    </div>
-</div>
-<p class="pp">Vehicle Type Overview</p>
-<div class="container-total">
-{% for i in vehicle_type_overview %}
-    
-    <div class="total">
-        <b>{{i.vehicle_type}}</b>
-        <p>Total slotes are: <b>{{i.total_slots}}</b></p>
-        <p>Aailable slotes are: <b>{{i.available_slots}}</b></p>
-        <p>Occupied slotes are: <b>{{i.occupied_slots}}</b></p>
-    </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card1">
+                <div class="m-1">
+                    <div class="border-rad">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(10, 109, 239);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{total_slots}}</b>
+                    <p class="fs-5 lh-1">Total Slots</p>
+                    <span class="lh-1 text-body-secondary">Avalible Slots</span>
 
-{% endfor %}
-</div>
-<p class="pp">Recent Vehicle Entries</p>
-<div class="tab">
-    <table class="table">
-    <tr>
-        <th>Vehicle ID</th>
-        <th>Vehicle Type</th>
-        <th>Slot ID</th>
-        <th>Status</th>
-        <th>Vehicle NUmber</th>
-        <th>Entry Time</th>
-        <th>Exit Time</th>
-        <th>Parking Fee</th>
-    </tr>
-    {% for i in recent_records %}
-    <tr>
-        
-        <td>{{i.id}}</td>
-        <td>{{i.vehicle_type}}</td>
-        <td>{{i.slot_id}}</td>
-        <td>{{i.status}}</td>
-        <td>{{i.vehicle_number}}</td>
-        <td>{{i.entry_time}}</td>
-        <td>{{i.exit_time}}</td>
-        <td>{{i.parking_fee}}</td>
-        {% endfor %}
-    </tr>
-</table>
-</div>
-<center><a href=""><button class="btn-viewall">View all</button></a></center>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card2">
+                <div class="m-1">
+                    <div class="border-rad-green">
+                        <i class="fa-solid fa-check fa-2xl fa-canvas-roomy fs-1" style="color: rgb(255, 255, 255);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{available_slots}}</b>
+                    <p class="fs-5 lh-1">Availble Slots</p>
+                    <span class="lh-1 text-body-secondary">Ready to park</span>
 
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card3">
+                <div class="m-1">
+                    <div class="border-rad-red">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(244, 77, 77);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{occupied_slots}}</b>
+                    <p class="fs-5 lh-1">Availble Slots</p>
+                    <span class="lh-1 text-body-secondary">Ready to park</span>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card1">
+                <div class="m-1">
+                    <div class="border-rad">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(10, 109, 239);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{total_slots}}</b>
+                    <p class="fs-5 lh-1">Total Slots</p>
+                    <span class="lh-1 text-body-secondary">Avalible Slots</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

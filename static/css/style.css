@@ -3,27 +3,23 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    line-height: normal;
 }
 
-.navbar{
-    background-color: #F35503;
-    padding: 13px;
-    margin: 10px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
-}
+
 h3{
     color: white;
     font-weight: 600;
     
 }
 
+.backgro{
+    background-color: #ecebf8 !important;
+}
+
 .footer{
     margin: 10px;
-    background-color: #F35503;
+    background-color: #ECF4FD;
     padding: 10px;
     color: white;
 }
@@ -176,7 +172,7 @@ th,td{
     line-height: 0px;
 }
 
-form{
+/* form{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -211,7 +207,7 @@ form button{
     border: none;
     margin: 20px;
     border-radius: 7px;
-}
+} */
 .data{
     display: flex;
     flex-direction: column;
@@ -259,4 +255,69 @@ form button{
     justify-content: center;
     align-items: center;
     margin: 20px;
+}
+
+.blue-col{
+    color: #0A6FF1;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 0px;
+}
+.bg-col{
+    background-color: #ECF4FD;
+    border-radius: 10px;
+}
+
+.hrr{
+    width: 90px;
+    height: 20px !important;
+    color: #0A6FF1;
+    opacity: 1;
+}
+
+.border-rad{
+    background-color: #DDEBFD;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+.border-rad-green{
+    background-color: #04BA2E;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+.border-rad-red{
+    background-color: #ffa9a9;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+
+.card1{
+    background-color: #F8FBFE;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+
+}
+
+.card2{
+    background-color: #F7FDF9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+
+}
+
+
+.card3{
+    background-color: #FFFAFA;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+
 }

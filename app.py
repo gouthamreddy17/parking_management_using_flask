@@ -290,8 +290,7 @@ def home():
     
 @app.route('/demo')
 def demo():
-    over=selectall()
-    return jsonify(over)
+    return render_template('dashboards.html')
 
 if __name__=="__main__":
     app.run(host='0.0.0.0',port=5000,debug=True)
