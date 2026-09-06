@@ -19,7 +19,7 @@ Dashboard
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-5 mb-5">
         <div class="col-12 col-sm-6 col-md-3">
             <div class="d-flex m-2 card1">
                 <div class="m-1">
@@ -81,5 +81,138 @@ Dashboard
             </div>
         </div>
     </div>
+    <div class="overview">
+        <div class="row">
+            {% for i in vehicle_type_overview %}
+            {% if i.vehicle_type=="Bike" %}
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="mt-5 mb-3">
+                    <div class="d-flex align-items-center  color-bl">
+                        <div class="bor1">
+                            <i class="fa-solid fa-motorcycle fa-2xl fa-canvas-roomy fs-1"
+                                style="color: rgb(10, 109, 239);"></i>
+                            <b>{{i.vehicle_type}}</b>
+                        </div>
+                        <div><i class="fa-solid fa-circle-arrow-right fa-2xl fa-canvas-roomy"
+                                style="color: rgb(10, 109, 239);"></i></div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between gap-2 ps-3 pe-3 background-voi">
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Total Slots</p>
+                        <b class="fs-5">{{i.total_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Available</p>
+                        <b class="fs-5 text-success">{{i.available_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Occuipied</p>
+                        <b class="fs-5 text-danger">{{i.occupied_slots}}</b>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if i.vehicle_type=="Car" %}
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="mt-5 mb-3">
+                    <div class="d-flex align-items-center  color-b2">
+                        <div class="bor2">
+                            <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(243, 85, 3);"></i>
+                            <b>{{i.vehicle_type}}</b>
+                        </div>
+                        <div class="fa-solid fa-circle-arrow-right fa-2xl fa-canvas-roomy"
+                            style="color: rgb(243, 85, 3);"></div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between gap-2 ps-3 pe-3 background-red">
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Total Slots</p>
+                        <b class="fs-5">{{i.total_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Available</p>
+                        <b class="fs-5 text-success">{{i.available_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Occuipied</p>
+                        <b class="fs-5 text-danger">{{i.occupied_slots}}</b>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if i.vehicle_type=="Truck"%}
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="mt-5 mb-3">
+                    <div class="d-flex align-items-center  color-b3">
+                        <div class="bor3">
+                            <i class="fa-solid fa-truck-moving fa-2xl fa-canvas-roomy fs-1"
+                                style="color: rgb(109, 2, 254);"></i>
+                            <b>{{i.vehicle_type}}</b>
+                        </div>
+                        <div class="fa-solid fa-circle-arrow-right fa-2xl fa-canvas-roomy"
+                            style="color: rgb(109, 2, 254);"></div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-between gap-2 ps-3 pe-3 background-voi">
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Total Slots</p>
+                        <b class="fs-5">{{i.total_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Available</p>
+                        <b class="fs-5 text-success">{{i.available_slots}}</b>
+                    </div>
+                    <div class="d-flex  flex-column align-items-center justify-content-between">
+                        <p class="text-body-secondary">Occuipied</p>
+                        <b class="fs-5 text-danger">{{i.occupied_slots}}</b>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="over-ab"><i class="fa-solid fa-chart-simple fa-lg fa-canvas-roomy"
+                style="color: rgb(109, 2, 254);"></i>
+            <b>vehicle Overview</b>
+        </div>
+        <div class="over-ab2"><a href="{{url_for('parkingslots')}}"><button class="view-btn">View All Slots →
+                </button></a></div>
+    </div>
+    <div class="overview mt-5">
+        <div class="margin">
+            <table class="table table-striped">
+                <tr class="table-striped">
+                    <th>Vehicle ID</th>
+                    <th>Vehicle Type</th>
+                    <th>Slot ID</th>
+                    <th>Status</th>
+                    <th>Vehicle NUmber</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                    <th>Parking Fee</th>
+                </tr>
+                {% for i in recent_records %}
+                <tr class="table-stripped">
+
+                    <td>{{i.id}}</td>
+                    <td>{{i.vehicle_type}}</td>
+                    <td>{{i.slot_id}}</td>
+                    <td>{{i.status}}</td>
+                    <td>{{i.vehicle_number}}</td>
+                    <td>{{i.entry_time}}</td>
+                    <td>{{i.exit_time}}</td>
+                    <td>{{i.parking_fee}}</td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>
+        <div class="over-ab"><i class="fa-solid fa-clock-rotate-left fa-lg fa-canvas-roomy" style="color: rgb(109, 2, 254);"></i>
+            <b>Recent Vehicle Entries</b>
+        </div>
+        <div class="over-ab2"><a href="{{url_for('viewhistory')}}"><button class="view-btn">View All History →
+                </button></a></div>
+    </div>
+</div>
 </div>
 {% endblock %}
