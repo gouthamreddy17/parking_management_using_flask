@@ -2,47 +2,42 @@
 {% block title %}
 Dashboard
 {% endblock %}
+{% block conten %}
 
-{% block nav %}
-    <a href="{{url_for('dashboard')}}">HOME</a>
-    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
-    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
-    <a href="">VEHICLE EXIT</a>
-    <a href="">HISTORY</a>
-{% endblock %}
-
-{% block content %}
-
-    <div>
-        <div class="middle">
-    <p>Vehicle Entry</p>
-    <p>Register a vehicle and assign a parking slot</p>
-
-</div>
-        <div class="form-con">
-            <form action="{{url_for('vehicle_entry')}}" method="POST">
-            <label for="vehicle_number">Vehicle Number</label>
-            <input type="text"
+<div class="back-img">
+    <div class="d-flex flex-column align-items-center justify-content-center pt-5">
+        <h1>Vehicle <span class="blue-col fs-1">Entry</span></h1>
+        <div class="hl"></div>
+        <span class="text-secondary pt-1">Enter Vehicle details to find available slots</span>
+    </div> 
+    <div class="form-con">
+            <form action="{{url_for('vehicle_entry')}}" method="POST" class="form-main">
+            <label  class="label" for="vehicle_number">Vehicle Number</label>
+            <input type="text" class="input"
                 name="vehicle_number"
                 id="vehicle_number"
                 value="{{vehicle_number}}"
                 placeholder="Enter Your Vehicle_number"
                 required
             >
-            <label for="vehicle_type">Vehicle Type</label>
-            <select name="vehicle_type" id="vehicle_type">
+            <label class="label" for="vehicle_type">Vehicle Type</label>
+            <select name="vehicle_type" id="vehicle_type" class="input">
                 <option value="Bike">Bike</option>
                 <option value="Car">Car</option>
                 <option value="Truck">Truck</option>
             </select>
-            <button type="submit" name="action"  value="show_slots">show slots</button>
-            <label for="slot">Select slot</label>
-            <select name="slot" id="slot">
+            <button type="submit" name="action"  value="show_slots" class="button2"><i class="fa-solid fa-magnifying-glass fa-sm" style="color: rgb(255, 255, 255);"></i> Show Slots</button>
+            <label class="label" for="slot">Select slot</label>
+            <select name="slot" id="slot" class="input">
             {% for i in slots %}
             <option value="{{i.id}}">{{i.slot_number}}</option>
             {% endfor %}
             </select>
-            <button type="submit" name="action"  value="park">Park vehicle</button>
+            <button type="submit" name="action"  value="park" class="button2"><i class="fa-solid fa-calendar-check fa-sm" style="color: rgb(255, 255, 255);"></i> Park vehicle</button>
+            <div class="form-ab"><i class="fa-solid fa-keyboard fa-xl" style="color: rgb(0, 7, 16);"></i></div>
+            <div class="form-ab2" ><i class="fa-solid fa-taxi fa-xl" style="color: rgb(0, 7, 16);"></i></div>
+            <div class="form-ab3"><i class="fa-solid fa-square-parking fa-lg" style="color: rgb(0, 7, 16);"></i></div>
         </form>
-        </div>
+</div>
+
 {% endblock %}
