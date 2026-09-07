@@ -5,7 +5,9 @@
     font-family: 'Poppins', sans-serif;
     line-height: normal;
 }
-
+body{
+    background-color: #F5FAFD !important;
+}
 
 h3{
     color: white;
@@ -416,4 +418,41 @@ form button{
 
 .margin{
     margin-top: 60px;
+}
+
+.cars-slots{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    padding-top: 60px;
+    background-color: #FDFEFE;
+    box-shadow: 1px 1px 5px black;
+    position: relative;
+    border-radius: 9px;
+}
+
+.slots-ab{
+    position: absolute;
+    left: 10px;
+    top: 20px;
+}
+
+.cars-slots-1{
+    display: flex;
+    margin: 10px;
+    gap: 15px;
+    width: 220px;
+    background-color: #DDEBFD;
+    padding: 20px;
+    border-radius: 10px ;
+    border: 1px solid gray;
+}
+
+.cars-slots-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

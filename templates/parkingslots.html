@@ -1,98 +1,154 @@
 {% extends "base.html" %}
 {% block title %}
-Parking Slots
+Dashboard
 {% endblock %}
-{% block nav %}
-    <a href="{{url_for('dashboard')}}">HOME</a>
-    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
-    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
-    <a href="">VEHICLE EXIT</a>
-    <a href="">HISTORY</a>
-{% endblock %}
-
 {% block content %}
-<div class="middle">
-    <p>Parking Slots</p>
-    <p>Manage and monitor all parking spaces</p>
-</div>
-<div class="container-total">
-    <div class="total">
-        <p>Total slotes are: <b>{{total_slots}}</b></p>
-    </div>
-    <div class="total">
-        <p>Available Slots are: <b>{{available_slots}}</b></p>
-    </div>
-    <div class="total">
-        <p>Occupied slotes are: <b>{{occupied_slots}}</b></p>
-    </div>
-    <div class="total">
-        <p>Total slotes are: <b>{{total_slots}}</b></p>
-    </div>
-</div>
-<div class="btns">
-    <button class="btn-types">Cars</button>
-    <button class="btn-types">Bikes</button>
-    <a href="#truck"><button class="btn-types" >Trucks</button></a>
-</div>
-<center><h2 class="space">CARS</h2></center>
-<div class="parking">
-    {% for i in selectall %}
-    {% if i.vehicle_type=="Car" %}
-        <div class="parking-type">
-            <div class="parking-type2">
-                <img src="{{ url_for('static', filename='images/car.png') }}"alt="Car" class="imm">
-            <p class="slot">[{{i.slot_number}}]</p>
+<div class="row mt-5 mb-5">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card1">
+                <div class="m-1">
+                    <div class="border-rad">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(10, 109, 239);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{total_slots}}</b>
+                    <p class="fs-5 lh-1">Total Slots</p>
+                    <span class="lh-1 text-body-secondary">Avalible Slots</span>
+
+                </div>
             </div>
-             <div>
-                {% if i.status=="Available" %}
-            <button class="color-green">  {{i.status}}</button>
-            {%elif i.status=="Occupied"%}
-            <button class="color-red">  {{i.status}}</button>
-            {% endif %}
         </div>
-        </div>
-    {% endif %}
-    {% endfor %}
-</div>
-<center><h2 class="space">BIKES</h2></center>
-<div class="parking">
-    {% for i in selectall %}
-    {% if i.vehicle_type=="Bike" %}
-        <div class="parking-type">
-            <div class="parking-type2">
-                <img src="{{ url_for('static', filename='images/bike.png') }}"alt="Car" class="imm">
-            <p class="slot">[{{i.slot_number}}]</p>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card2">
+                <div class="m-1">
+                    <div class="border-rad-green">
+                        <i class="fa-solid fa-check fa-2xl fa-canvas-roomy fs-1" style="color: rgb(255, 255, 255);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{available_slots}}</b>
+                    <p class="fs-5 lh-1">Availble Slots</p>
+                    <span class="lh-1 text-body-secondary">Ready to park</span>
+
+                </div>
             </div>
-             <div>
-                {% if i.status=="Available" %}
-            <button class="color-green">  {{i.status}}</button>
-            {%elif i.status=="Occupied"%}
-            <button class="color-red">  {{i.status}}</button>
-            {% endif %}
         </div>
-        </div>
-    {% endif %}
-    
-    {% endfor %}
-</div>
-<center><h2 class="space">TRUCKS</h2></center>
-<div class="parking" id="truck">
-    {% for i in selectall %}
-    {% if i.vehicle_type=="Truck" %}
-        <div class="parking-type">
-            <div class="parking-type2">
-                <img src="{{ url_for('static', filename='images/truck.png') }}"alt="Car" class="imm">
-            <p class="slot">[{{i.slot_number}}]</p>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card3">
+                <div class="m-1">
+                    <div class="border-rad-red">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(244, 77, 77);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{occupied_slots}}</b>
+                    <p class="fs-5 lh-1">Availble Slots</p>
+                    <span class="lh-1 text-body-secondary">Ready to park</span>
+
+                </div>
             </div>
-             <div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="d-flex m-2 card1">
+                <div class="m-1">
+                    <div class="border-rad">
+                        <i class="fa-solid fa-car fa-2xl fa-canvas-roomy fs-1" style="color: rgb(10, 109, 239);"></i>
+                    </div>
+                </div>
+                <div>
+                    <b class="fs-2">{{total_slots}}</b>
+                    <p class="fs-5 lh-1">Total Slots</p>
+                    <span class="lh-1 text-body-secondary">Avalible Slots</span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-evenly align-items-center">
+        <a href=""><button type="button" class="btn btn-outline-primary fw-bold pe-4 ps-4"><i class="fa-solid fa-car fa-xl" style="color: rgb(0, 7, 16);"></i> Cars</button></a>
+        <a href=""><button type="button" class="btn btn-outline-primary fw-bold pe-4 ps-4"><i class="fa-solid fa-motorcycle fa-lg" style="color: rgb(0, 7, 16);"></i> Bikes</button></a>
+        <a href=""><button type="button" class="btn btn-outline-primary fw-bold pe-4 ps-4"><i class="fa-solid fa-truck-moving fa-lg" style="color: rgb(0, 7, 16);"></i> Bikes</button></a>
+    </div>
+    <div class="cars-slots">
+        {% for i in selectall %}
+        {% if i.vehicle_type=="Car" %}
+        
+        <div class="cars-slots-1">
+            <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-car fa-2xl" style="color: rgb(0, 7, 16);"></i></div>
+            <div class="cars-slots-2">
+                <b>{{i.slot_number}}</b>
                 {% if i.status=="Available" %}
-            <button class="color-green">  {{i.status}}</button>
-            {%elif i.status=="Occupied"%}
-            <button class="color-red">  {{i.status}}</button>
-            {% endif %}
+                <button class="btn btn-outline-success">Avalible</button>
+                {%elif i.status=="Occupied"%}
+                <button class="btn btn-outline-danger">Occupied</button>
+                {% endif %}
+            </div>
+            <div class="d-flex align-items-center justify-content-center ps-2"><i class="fa-solid fa-chevron-right fa-lg" style="color: rgb(68, 69, 70);"></i></div>
+            </div>
+            
+        {% endif %}
+        {% endfor %}
+        <div class="slots-ab">
+            <i class="fa-solid fa-check-to-slot fa-xl" style="color: rgb(109, 2, 254);"></i>
+            <b> Slot Availability For Cars</b>
         </div>
+
+            
+        
+    </div>
+    <div class="cars-slots">
+        {% for i in selectall %}
+        {% if i.vehicle_type=="Bike" %}
+        
+        <div class="cars-slots-1">
+            <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-motorcycle fa-2xl" style="color: rgb(0, 7, 16);"></i></div>
+            <div class="cars-slots-2">
+                <b>{{i.slot_number}}</b>
+                {% if i.status=="Available" %}
+                <button class="btn btn-outline-success">Avalible</button>
+                {%elif i.status=="Occupied"%}
+                <button class="btn btn-outline-danger">Occupied</button>
+                {% endif %}
+            </div>
+            <div class="d-flex align-items-center justify-content-center ps-2"><i class="fa-solid fa-chevron-right fa-lg" style="color: rgb(68, 69, 70);"></i></div>
+            </div>
+            
+        {% endif %}
+        {% endfor %}
+        <div class="slots-ab">
+            <i class="fa-solid fa-check-to-slot fa-xl" style="color: rgb(109, 2, 254);"></i>
+            <b> Slot Availability For Bikes</b>
         </div>
-    {% endif %}
-    {% endfor %}
-</div>
+
+            
+        
+    </div>
+    <div class="cars-slots">
+        {% for i in selectall %}
+        {% if i.vehicle_type=="Truck" %}
+        
+        <div class="cars-slots-1">
+            <div class="d-flex align-items-center justify-content-center"><i class="fa-solid fa-truck-moving fa-2xl" style="color: rgb(0, 7, 16);"></i></div>
+            <div class="cars-slots-2">
+                <b>{{i.slot_number}}</b>
+                {% if i.status=="Available" %}
+                <button class="btn btn-outline-success">Avalible</button>
+                {%elif i.status=="Occupied"%}
+                <button class="btn btn-outline-danger">Occupied</button>
+                {% endif %}
+            </div>
+            <div class="d-flex align-items-center justify-content-center ps-1"><i class="fa-solid fa-chevron-right fa-lg" style="color: rgb(68, 69, 70);"></i></div>
+            </div>
+            
+        {% endif %}
+        {% endfor %}
+        <div class="slots-ab">
+            <i class="fa-solid fa-check-to-slot fa-xl" style="color: rgb(109, 2, 254);"></i>
+            <b> Slot Availability For Trucks</b>
+        </div>
+
+            
+        
+    </div>
 {% endblock %}
