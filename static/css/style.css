@@ -532,3 +532,46 @@ form button{
     background-color: #0A6FF1;
     border-radius: 20px;
 }
+
+.back-image{
+    background-image: url(../images/back2.png);
+    height: 640px;
+}
+.det{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    
+}
+
+.det-1{
+    display: flex;
+    background-color: #DFF1FE;
+    padding: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    
+}
+
+.det-2{
+    display: flex;
+    
+}
+
+.feee{
+    display: flex;
+    background-color: rgb(248, 190, 190);
+    padding: 10px;
+    gap: 20px;
+    border-radius: 10px;
+}
+
+.form-1 button{
+    background-color: #0A6FF1;
+    padding: 10px 30px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}

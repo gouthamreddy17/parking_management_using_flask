@@ -3,42 +3,65 @@
 Dashboard
 {% endblock %}
 
-{% block nav %}
-    <a href="{{url_for('dashboard')}}">HOME</a>
-    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
-    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
-    <a href="">VEHICLE EXIT</a>
-    <a href="">HISTORY</a>
-{% endblock %}
+{% block conten %}
+<div class="back-image">
+    <div class="det">
+        <div class="det-1">
+            <div class="det-2 mb-3">
+                <div><i class="fa-solid fa-bus-simple fa-2xl fs-1" style="color: rgb(109, 2, 254);"></i></div>
+            <div class="d-flex flex-column  justify-content-center">
+                <h5 class="text-primary"><b>Vehicle Details</b></h5>
+                <span class="text-secondary">Review the details and proceed to pay and exit</span>
+            </div>
+            </div>
+            <div class="pb-3">
+                <i class="fa-regular fa-id-card fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">VEHICLE ID : </span><b>    {{vehicle.id}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-solid fa-list-ol fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">VEHICLE NUMBER : </span><b>    {{vehicle.vehicle_number}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-solid fa-truck fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">VEHICLE TYPE : </span><b>    {{vehicle.vehicle_type}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-solid fa-keyboard fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">SLOT NUMBER : </span><b>    {{vehicle.slot_number}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-regular fa-id-card fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">SLOT ID : </span><b>    {{vehicle.slot_id}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-regular fa-clock fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">ENTRY TIME : </span><b>    {{vehicle.entry_time}}</b>
+            </div>
+            <div class="pb-3">
+                <i class="fa-solid fa-up-right-from-square fa-xl" style="color: rgb(2, 30, 254);"></i>
+                <span class="text-secondary ">EXIT TIME : </span><b>    {{vehicle.exit_time}}</b>
+            </div>
+            <div class="feee">
+                <div><img src="{{ url_for('static', filename='images/rup.png') }}"alt="Car" class="imm"></div>
+                <div >
+                    <p class="text-danger lh-1">PARKING FEE</p>
+                    <h3 class="lh-1 text-danger"><b>₹{{fee}}</b></h3>
+                </div> 
+            </div>
 
-{% block content %}
-
-
-<div>
-    <div class="data">
-        <div class="data1">
             
-        <div><span class="spp">VEHICLE ID:</span><b>{{vehicle.id}}</b></div>
-        <div><span class="spp">VEHICLE NUMBER:</span><b>{{vehicle.vehicle_number}}</b></div>
-        <div><span class="spp">VEHICLE TYPE:</span><b>{{vehicle.vehicle_type}}</b></div>
-        <div><span class="spp">SLOT NUMBER:</span><b>{{vehicle.slot_number}}</b></div>
-        <div><span class="spp">SLOT ID:</span><b>{{vehicle.slot_id}}</b></div>
-        <div><span class="spp">ENTRY TIME:</span><b>{{vehicle.entry_time}}</b></div>
-        <div><span class="spp">EXIT TIME:</span><b>{{vehicle.exit_time}}</b></div>
-        <div><span class="spp">STATUS:</span><b>{{vehicle.status}}</b></div>
-        
-        
-            
-        <center><b class="color-red">FEE:{{fee}}</b></center>
         </div>
-        
-    </div>
-</div>
-
-<div class="data">
-    <form action="/confirm_exit" method="POST">
+        <div class="data" class="">
+    <form action="/confirm_exit" method="POST" class="form-1">
             <input type="hidden"  name="vehicle_number"    value="{{vehicle.vehicle_number}}"   >
-            <button type="submit" >COnfirm to Pay and Exit</button>
+            <button type="submit" ><i class="fa-solid fa-user-check fa-xl" style="color: rgb(255, 255, 255);"></i> Confirm to Pay and Exit</button>
         </form>
+</div>
+       
+        
+
+    </div>
+    
 </div>
 {% endblock %}

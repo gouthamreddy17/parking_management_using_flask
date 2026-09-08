@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block nav %}
+    <a href="{{url_for('dashboard')}}">HOME</a>
+    <a href="{{url_for('parkingslots')}}">PARKING SLOTS</a>
+    <a href="{{url_for('vehicle_entry')}}">VEHICLE ENTRY</a>
+    <a href="">VEHICLE EXIT</a>
+    <a href="">HISTORY</a>
+{% endblock %}
+
+{% block content %}
+
+
+<div>
+    <div class="data">
+        <div class="data1">
+            
+        <div><span class="spp">VEHICLE ID:</span><b>{{vehicle.id}}</b></div>
+        <div><span class="spp">VEHICLE NUMBER:</span><b>{{vehicle.vehicle_number}}</b></div>
+        <div><span class="spp">VEHICLE TYPE:</span><b>{{vehicle.vehicle_type}}</b></div>
+        <div><span class="spp">SLOT NUMBER:</span><b>{{vehicle.slot_number}}</b></div>
+        <div><span class="spp">SLOT ID:</span><b>{{vehicle.slot_id}}</b></div>
+        <div><span class="spp">ENTRY TIME:</span><b>{{vehicle.entry_time}}</b></div>
+        <div><span class="spp">EXIT TIME:</span><b>{{vehicle.exit_time}}</b></div>
+        <div><span class="spp">STATUS:</span><b>{{vehicle.status}}</b></div>
+        
+        
+            
+        <center><b class="color-red">FEE:{{fee}}</b></center>
+        </div>
+        
+    </div>
+</div>
+
+<div class="data">
+    <form action="/confirm_exit" method="POST">
+            <input type="hidden"  name="vehicle_number"    value="{{vehicle.vehicle_number}}"   >
+            <button type="submit" >COnfirm to Pay and Exit</button>
+        </form>
+</div>
+{% endblock %}
